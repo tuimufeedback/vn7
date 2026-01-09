@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Smart Shopee Redirect</title>
+</head>
+<body>
+<script>
+    const iosUrl = "https://s.shopee.vn/805SQETqCU";  
+    const androidIntent = "intent://s.shopee.vn/805SQETqCU#Intent;scheme=https;package=com.shopee.vn;end";
+
+    const ua = navigator.userAgent.toLowerCase();
+    const isIOS = /iphone|ipad|ipod/.test(ua);
+
+    if (isIOS) {
+        window.location.href = iosUrl;
+    } else {
+        window.location.href = androidIntent;
+
+        setTimeout(() => {
+            window.location.href = iosUrl;
+        }, 1200);
+    }
+</script>
+</body>
+</html>
